@@ -1,12 +1,53 @@
-# Jenkins Lab
+# SonarQube Lab
 
-## Configuración YML
+## Crear Docker Compose
 
-Antes de ejecutar el Docker Compose, debemos verificar que el .yml tenga la siguiente estructura:
+Para esta práctica, en la cual realizaremos un primer análisis de código con SonarQube, creamos un Docker Compose que contenga las siguientes instrucciones:
 
-![image1](https://github.com/santiagoarevalo/jenkins-lab/assets/71450411/ffaabec0-a9c6-4ace-8af7-f0aaf6d37436)
+```
+version: '2'
 
-Esto nos garantiza que los volúmenes están correctamente definidos.
+services:
+  sonarqube:
+    image: sonarqube
+    ports:
+      - "9000:9000"
+    networks:
+      - sonarnet
+    environment:
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+
+  db:
+    image: postgres
+    networks:
+      - sonarnet
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+
+networks:
+  sonarnet:
+    driver: bridge
+
+volumes:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_bundled-plugins:
+  postgresql:
+  postgresql_data:
+
+```
 
 ## Ejecutar Docker Compose
 
@@ -19,20 +60,8 @@ Para ejecutar Docker Compose, asegúrate de que tengas Docker Compose instalado 
 ```bash
 docker-compose up -d
 ```
-![image2](https://github.com/santiagoarevalo/jenkins-lab/assets/71450411/45121912-f029-4ac4-b4a4-79434e43322f)
+![image](https://github.com/santiagoarevalo/sonarqube-lab/assets/71450411/290a92ca-0b6c-4564-9444-86d956ff9221)
 
-
-3. Extraer passwords
-
-```bash
-docker logs id_container
-```
-
-```bash
-docker exec id_container cat /var/jenkins_home/secrets/initialAdminPassword
-```
-
-![get-password-image4](https://github.com/santiagoarevalo/jenkins-lab/assets/71450411/d74f6ad9-f782-4981-b194-7f28ffc7d490)
 
 ## Iniciar Jenkins
 
