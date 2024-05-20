@@ -62,6 +62,15 @@ docker-compose up -d
 ```
 ![image](https://github.com/santiagoarevalo/sonarqube-lab/assets/71450411/290a92ca-0b6c-4564-9444-86d956ff9221)
 
+## Dentro de SonarQube
+Ingresamos a la UI de SonarQube por medio de la URL `localhost:9000`, las credenciales de autenticación por defecto son Login: `admin` y Password: `admin`
+Luego de esto:
+- Cambiamos la contraseña por defecto
+- Creamos un proyecto local, indicando un nombre, un project key y el nombre de la rama principal.
+- Elegimos configuración global (por defecto)
+- Elegimos el método de análisis local para el proyecto
+- Generamos el token de autenticación para realizar los análisis de código del proyecto
+- Seleccionamos el sistema operativo donde ejecutaremos el Sonar-Scanner para realizar la instalación de su CLI
 
 
 
