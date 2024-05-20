@@ -72,6 +72,11 @@ Luego de esto:
 - Generamos el token de autenticación para realizar los análisis de código del proyecto
 - Seleccionamos el sistema operativo donde ejecutaremos el Sonar-Scanner para realizar la instalación de su CLI
 
+### Instalación de Sonar-Scanner
+Ahora, debemos instalar el Sonar-Scanner para realizar el análisis sobre nuestro código. Para esto hay varias formas, dependiendo el sistema operativo de la máquina en la cual esté el proyecto y SonarQube.
+Para correr SonarScanner CLI mediante un archivo .zip, sigue los siguiente pasos:
+
+
 
 
 
