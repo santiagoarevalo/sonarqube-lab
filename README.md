@@ -91,7 +91,7 @@ Options:
 5. Ahora, corremos el siguiente comando ubicados desde la raíz del proyecto para lanzar el análisis y le pasamos nuestro token de autenticación:
 `sonar-scanner -Dsonar.token=myAuthenticationToken`
 
-_Nota: Puedes consultar la documentación de SonarQube para realizar la instalación del Sonar Scanner por medio de otros métodos: [Instalación de Sonar Scanner] (https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner/)_ 
+_Nota: Puedes consultar la documentación de SonarQube para realizar la instalación del Sonar Scanner por medio de otros métodos: [Instalación de Sonar Scanner](https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner/)_ 
 
 ### Análisis del Sonar Scanner
 
